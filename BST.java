@@ -13,14 +13,14 @@
 public class BST 
 {
     //instance variables / attributes of a BST:
-
+    private TreeNode root;
 
     /*****************************************************
      * default constructor
      *****************************************************/
     BST( ) 
     {
-	/*** YOUR IMPLEMENTATION HERE ***/
+	root = new TreeNode();
     }
 
 
@@ -30,7 +30,7 @@ public class BST
      *****************************************************/
     public void insert( int newVal ) 
     {
-     	/*** YOUR IMPLEMENTATION HERE ***/
+	
     }
 
 

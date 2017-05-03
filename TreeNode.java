@@ -7,6 +7,9 @@
 public class TreeNode 
 {
     //instance variables / attributes of a TreeNode:
+    private int value;
+    private TreeNode left;
+    private TreeNode right;
 
 
     /*****************************************************
@@ -16,7 +19,9 @@ public class TreeNode
      *****************************************************/
     TreeNode( int initValue )
     {
-	/*** YOUR IMPLEMENTATION HERE ***/
+	value = 0;
+	left = null;
+	right = null;
     }
           
 
@@ -27,7 +32,9 @@ public class TreeNode
      *****************************************************/
     TreeNode( int initValue, TreeNode initLeft, TreeNode initRight ) 
     {
-	/*** YOUR IMPLEMENTATION HERE ***/
+	value = initValue;
+	left = initLeft;
+	right = initRight;
     }
  
 
@@ -36,7 +43,7 @@ public class TreeNode
      *****************************************************/
     TreeNode getLeft() 
     {
-	/*** YOUR IMPLEMENTATION HERE ***/
+	return left;
     }
 
 
@@ -45,7 +52,7 @@ public class TreeNode
      *****************************************************/
     TreeNode getRight() 
     {
-	/*** YOUR IMPLEMENTATION HERE ***/
+	return right;
     }
 
 
@@ -54,7 +61,7 @@ public class TreeNode
      *****************************************************/
     int getValue() 
     {
-	/*** YOUR IMPLEMENTATION HERE ***/
+	return value;
     }
 
 
@@ -63,7 +70,7 @@ public class TreeNode
      *****************************************************/
     void setLeft( TreeNode theNewLeft ) 
     {
-	/*** YOUR IMPLEMENTATION HERE ***/
+	left = theNewLeft;
     }
 
 
@@ -72,7 +79,7 @@ public class TreeNode
      *****************************************************/
     void setRight( TreeNode theNewRight ) 
     {
-	/*** YOUR IMPLEMENTATION HERE ***/
+	right = theNewRight;
     }
 
 
@@ -81,7 +88,7 @@ public class TreeNode
      *****************************************************/
     void setValue( int theNewValue ) 
     {
-	/*** YOUR IMPLEMENTATION HERE ***/
+	value = theNewValue;
     }
  
 }//end class

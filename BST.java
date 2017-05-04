@@ -20,7 +20,7 @@ public class BST
      *****************************************************/
     BST( ) 
     {
-	root = new TreeNode();
+	root = null;
     }
 
 
@@ -30,29 +30,88 @@ public class BST
      *****************************************************/
     public void insert( int newVal ) 
     {
-	
-    }
+	//create new TreeNodes
+	TreeNode thing = new TreeNode( newVal );
+	TreeNode compare = root;
+
+	//base case
+	if ( root == null ) {
+	    root = thing;
+	    return;
+	}
+
+	for( ; ; ) {//infinitely running loop
+	    //if newVal is less than the root, go to the left
+	    if( compare.getValue() > newVal ) {
+		//base case
+		if ( compare.getLeft() == null ){
+		    compare.setLeft( thing );
+		    return;
+		}
+		else {
+		    compare.getLeft().insert( newVal );
+		}
+	    }
+	    //if newVal is more than the root, go to the right	    
+	    else {
+		//base case
+		if ( compare.getRight() == null ){
+		    compare.setRight( thing );
+		    return;
+		}
+		else { 
+		    compare.getRight().insert( newVal );
+		}
+	    }
+	}
 
 
-    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    //~~~~~~~~~~~~~v~~TRAVERSALS~~v~~~~~~~~~~~~~~~~~~~~~
+	//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	//~~~~~~~~~~~~~v~~TRAVERSALS~~v~~~~~~~~~~~~~~~~~~~~~
 
     // each traversal should simply print to standard out 
     // the nodes visited, in order
 
     public void preOrderTrav() 
     {
-    	/*** YOUR IMPLEMENTATION HERE ***/
+        if ( root != null ) {
+	    TreeNode n = root;
+	    System.out.print( n.getValue() + " " );
+	    if ( n.getLeft() != null ) {
+		n.getLeft().preOrderTrav();
+	    }
+	    if ( n.getRight() != null ) {
+		n.getRight().preOrderTrav();
+	    }
+	}
     }
 
     public void inOrderTrav() 
     {
-    	/*** YOUR IMPLEMENTATION HERE ***/
+    	if ( root != null ) {
+	    TreeNode n = root;	    
+	    if ( n.getLeft() != null ) {
+		n.getLeft().inOrderTrav();
+	    }
+	    System.out.print( n.getValue() + " " );
+	    if ( n.getRight() != null ) {
+		n.getRight().inOrderTrav();
+	    }
+	}
     }
 
     public void postOrderTrav() 
     {
-    	/*** YOUR IMPLEMENTATION HERE ***/
+    	if ( root != null ) {
+	    TreeNode n = root;	    
+	    if ( n.getLeft() != null ) {
+		n.getLeft().postOrderTrav();
+	    }
+	    if ( n.getRight() != null ) {
+		n.getRight().postOrderTrav();
+	    }
+	    System.out.print( n.getValue() + " " );
+	}
     }
     //~~~~~~~~~~~~~^~~TRAVERSALS~~^~~~~~~~~~~~~~~~~~~~~~
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

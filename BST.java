@@ -40,7 +40,7 @@ public class BST
 	    return;
 	}
 
-	for( ; ; ) {//infinitely running loop
+	while( true ) {//infinitely running loop
 	    //if newVal is less than the root, go to the left
 	    if( compare.getValue() > newVal ) {
 		//base case
@@ -131,7 +131,6 @@ public class BST
     //main method for testing
     public static void main( String[] args ) 
     {
-	/*~~~~~~~~~~~~move~me~down~~~~~~~~~~~~~~~~~~~~~~
 	  BST arbol = new BST();
 
 	  arbol.insert( 4 );
@@ -149,6 +148,7 @@ public class BST
 	
 	  System.out.println( "\npost-order traversal:" );
 	  arbol.postOrderTrav();	
+	/*~~~~~~~~~~~~move~me~down~~~~~~~~~~~~~~~~~~~~~~
 	  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
     }
 

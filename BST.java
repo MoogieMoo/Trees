@@ -49,7 +49,7 @@ public class BST
 		    return;
 		}
 		else {
-		    compare.getLeft().insert( newVal );
+		    compare = compare.getLeft();
 		}
 	    }
 	    //if newVal is more than the root, go to the right	    
@@ -60,7 +60,7 @@ public class BST
 		    return;
 		}
 		else { 
-		    compare.getRight().insert( newVal );
+		    compare = compare.getRight();
 		}
 	    }
 	}

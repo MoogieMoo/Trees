@@ -76,44 +76,54 @@ public class BST
     public void preOrderTrav() 
     {
         if ( root != null ) {
-	    TreeNode n = root;
-	    System.out.print( n.getValue() + " " );
-	    if ( n.getLeft() != null ) {
-		n.getLeft().preOrderTrav();
-	    }
-	    if ( n.getRight() != null ) {
-		n.getRight().preOrderTrav();
-	    }
+	    preHelper( root );	    
+	}
+    }
+
+    public void preHelper( TreeNode t ) {
+	System.out.print( t.getValue() + " " );
+	if ( t.getLeft() != null ) {
+	    preHelper( t.getLeft() );
+	}
+	if ( t.getRight() != null ) {
+	    preHelper( t.getRight() );
 	}
     }
 
     public void inOrderTrav() 
     {
-    	if ( root != null ) {
-	    TreeNode n = root;	    
-	    if ( n.getLeft() != null ) {
-		n.getLeft().inOrderTrav();
-	    }
-	    System.out.print( n.getValue() + " " );
-	    if ( n.getRight() != null ) {
-		n.getRight().inOrderTrav();
-	    }
+	if ( root != null ) {
+	    inHelper( root );	    
+	}    	
+    }
+
+    public void inHelper( TreeNode t ) {
+	System.out.print( t.getValue() + " " );
+	if ( t.getLeft() != null ) {
+	    inHelper( t.getLeft() );
+	}
+	if ( t.getRight() != null ) {
+	    inHelper( t.getRight() );
 	}
     }
 
     public void postOrderTrav() 
     {
     	if ( root != null ) {
-	    TreeNode n = root;	    
-	    if ( n.getLeft() != null ) {
-		n.getLeft().postOrderTrav();
-	    }
-	    if ( n.getRight() != null ) {
-		n.getRight().postOrderTrav();
-	    }
-	    System.out.print( n.getValue() + " " );
+	    postHelper( root );
 	}
     }
+
+    public void postHelper( TreeNode t ) {
+	System.out.print( t.getValue() + " " );
+	if ( t.getLeft() != null ) {
+	    postHelper( t.getLeft() );
+	}
+	if ( t.getRight() != null ) {
+	    postHelper( t.getRight() );
+	}
+    }
+    
     //~~~~~~~~~~~~~^~~TRAVERSALS~~^~~~~~~~~~~~~~~~~~~~~~
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

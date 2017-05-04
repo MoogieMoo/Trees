@@ -7,9 +7,9 @@
 public class TreeNode 
 {
     //instance variables / attributes of a TreeNode:
-    private int value;
-    private TreeNode left;
-    private TreeNode right;
+    int value;
+    TreeNode left;
+    TreeNode right;
 
 
     /*****************************************************
@@ -19,9 +19,7 @@ public class TreeNode
      *****************************************************/
     TreeNode( int initValue )
     {
-	value = 0;
-	left = null;
-	right = null;
+	value = initValue;
     }
           
 
@@ -32,7 +30,7 @@ public class TreeNode
      *****************************************************/
     TreeNode( int initValue, TreeNode initLeft, TreeNode initRight ) 
     {
-	value = initValue;
+	this(initValue);
 	left = initLeft;
 	right = initRight;
     }

@@ -13,7 +13,7 @@
 public class BST 
 {
     //instance variables / attributes of a BST:
-    private TreeNode root;
+    TreeNode root;
 
     /*****************************************************
      * default constructor
@@ -32,42 +32,35 @@ public class BST
     {
 	//create new TreeNodes
 	TreeNode thing = new TreeNode( newVal );
-	TreeNode compare = root;
 
 	//base case
 	if ( root == null ) {
 	    root = thing;
 	    return;
 	}
-
-	for( ; ; ) {//infinitely running loop
-	    //if newVal is less than the root, go to the left
-	    if( compare.getValue() > newVal ) {
-		//base case
-		if ( compare.getLeft() == null ){
-		    compare.setLeft( thing );
-		    return;
-		}
-		else {
-		    compare = compare.getLeft();
-		    insert( newVal );
-		}
-	    }
-	    //if newVal is more than the root, go to the right	    
-	    else {
-		//base case
-		if ( compare.getRight() == null ){
-		    compare.setRight( thing );
-		    return;
-		}
-		else { 
-		    compare = compare.getRight();
-		    insert( newVal );
-		}
-	    }
-	}
+        insert( root, thing );
     }
 
+    //recursive helper for insert(int)
+    public void insert( TreeNode stRoot, TreeNode newNode ) {
+
+	if ( newNode.getValue() < stRoot.getValue() ) {
+	    //if no left child, make newNode the left child
+	    if ( stRoot.getLeft() == null )
+		stRoot.setLeft( newNode );
+	    else //recurse down left subtree
+		insert( stRoot.getLeft(), newNode );
+	    return;
+	}
+	else { // new val >= curr, so look down right subtree
+	    //if no right child, make newNode the right child
+	    if ( stRoot.getRight() == null )
+		stRoot.setRight( newNode );
+	    else //recurse down right subtree
+		insert( stRoot.getRight(), newNode );
+	    return;
+	}
+    }
 
 	//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	//~~~~~~~~~~~~~v~~TRAVERSALS~~v~~~~~~~~~~~~~~~~~~~~~
@@ -77,53 +70,38 @@ public class BST
 
     public void preOrderTrav() 
     {
-        if ( root != null ) {
-	    preHelper( root );	    
-	}
+	    preOrderTrav( root );	    
     }
 
-    public void preHelper( TreeNode t ) {
+    public void preOrderTrav( TreeNode t ) {
+	if ( t == null ) { return; }
 	System.out.print( t.getValue() + " " );
-	if ( t.getLeft() != null ) {
-	    preHelper( t.getLeft() );
-	}
-	if ( t.getRight() != null ) {
-	    preHelper( t.getRight() );
-	}
+	preOrderTrav( t.getLeft() );
+	preOrderTrav( t.getRight() );
     }
 
     public void inOrderTrav() 
     {
-	if ( root != null ) {
-	    inHelper( root );	    
-	}    	
+	inOrderTrav( root );	     	
     }
 
-    public void inHelper( TreeNode t ) {
+    public void inOrderTrav( TreeNode t ) {
+	if ( t == null ) { return; }
+	inOrderTrav( t.getLeft() );
 	System.out.print( t.getValue() + " " );
-	if ( t.getLeft() != null ) {
-	    inHelper( t.getLeft() );
-	}
-	if ( t.getRight() != null ) {
-	    inHelper( t.getRight() );
-	}
+	inOrderTrav( t.getRight() );
     }
 
     public void postOrderTrav() 
     {
-    	if ( root != null ) {
-	    postHelper( root );
-	}
+	    postOrderTrav( root );
     }
 
-    public void postHelper( TreeNode t ) {
+    public void postOrderTrav( TreeNode t ) {
+	if ( t == null ) { return; }
+	postOrderTrav( t.getLeft() );
+	postOrderTrav( t.getRight() );
 	System.out.print( t.getValue() + " " );
-	if ( t.getLeft() != null ) {
-	    postHelper( t.getLeft() );
-	}
-	if ( t.getRight() != null ) {
-	    postHelper( t.getRight() );
-	}
     }
     
     //~~~~~~~~~~~~~^~~TRAVERSALS~~^~~~~~~~~~~~~~~~~~~~~~
@@ -149,7 +127,8 @@ public class BST
 	  arbol.inOrderTrav();
 	
 	  System.out.println( "\npost-order traversal:" );
-	  arbol.postOrderTrav();	
+	  arbol.postOrderTrav();
+	  System.out.println();	
 	/*~~~~~~~~~~~~move~me~down~~~~~~~~~~~~~~~~~~~~~~
 	  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
     }

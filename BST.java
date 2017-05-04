@@ -40,7 +40,7 @@ public class BST
 	    return;
 	}
 
-	while( true ) {//infinitely running loop
+	for( ; ; ) {//infinitely running loop
 	    //if newVal is less than the root, go to the left
 	    if( compare.getValue() > newVal ) {
 		//base case
@@ -50,6 +50,7 @@ public class BST
 		}
 		else {
 		    compare = compare.getLeft();
+		    insert( newVal );
 		}
 	    }
 	    //if newVal is more than the root, go to the right	    
@@ -61,6 +62,7 @@ public class BST
 		}
 		else { 
 		    compare = compare.getRight();
+		    insert( newVal );
 		}
 	    }
 	}

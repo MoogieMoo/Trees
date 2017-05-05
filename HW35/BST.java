@@ -223,18 +223,19 @@ public class BST
 	  arbol.inOrderTrav();
 	
 	  System.out.println( "\npost-order traversal:" );
-	  arbol.postOrderTrav();	
+	  arbol.postOrderTrav();
+	  System.out.println();
 	  //insert your new test calls here...
 
 	  System.out.println( "Testing search..." );
-	  arbol.search( 1 );
-	  arbol.search( 3 );
+	  System.out.println( arbol.search( 1 ) );
+	  System.out.println( arbol.search( 3 ) );
 
 	  System.out.println( "Testing height..." );
-	  arbol.height();
+	  System.out.println( arbol.height() );
 
 	  System.out.println( "Testing numLeaves..." );
-	  arbol.numLeaves();
+	  System.out.println( arbol.numLeaves() );
 	  
 	/*~~~~~~~~~~~~move~me~down~~~~~~~~~~~~~~~~~~~~~~
 	  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/

@@ -125,7 +125,7 @@ public class BST
 
 	while ( l != null || r != null ) {
 	    if ( t.getValue() == target ) {
-		return current;
+		return t;
 	    }
 	    else if ( t.getValue() > target ) {
 		t = t.getLeft();
@@ -173,6 +173,7 @@ public class BST
 		return height( r ) + 1;
 	    }
 	}
+	return 0;
     }
 
 
@@ -203,6 +204,7 @@ public class BST
 	else {
 	    return numLeaves( l ) + numLeaves( r );
 	}
+	return 0;
     }
 
     //main method for testing

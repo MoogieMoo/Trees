@@ -73,38 +73,38 @@ public class BST
 
     public void preOrderTrav() 
     {
-	    preOrderTrav( root );	    
+	preOrderTrav( root );//call overloaded preOrderTrav()	    
     }
 
     public void preOrderTrav( TreeNode t ) {
 	if ( t == null ) { return; }
-	System.out.print( t.getValue() + " " );
+	System.out.print( t.getValue() + " " );//root-left-right
 	preOrderTrav( t.getLeft() );
 	preOrderTrav( t.getRight() );
     }
 
     public void inOrderTrav() 
     {
-	inOrderTrav( root );	     	
+	inOrderTrav( root );//call overloaded inOrderTrav()	     	
     }
 
     public void inOrderTrav( TreeNode t ) {
 	if ( t == null ) { return; }
 	inOrderTrav( t.getLeft() );
-	System.out.print( t.getValue() + " " );
+	System.out.print( t.getValue() + " " );//left-root-right
 	inOrderTrav( t.getRight() );
     }
 
     public void postOrderTrav() 
     {
-	    postOrderTrav( root );
+	    postOrderTrav( root );//call overloaded postOrderTrav()
     }
 
     public void postOrderTrav( TreeNode t ) {
 	if ( t == null ) { return; }
 	postOrderTrav( t.getLeft() );
 	postOrderTrav( t.getRight() );
-	System.out.print( t.getValue() + " " );
+	System.out.print( t.getValue() + " " );//left-right-root
     }
 
     //~~~~~~~~~~~~~^~~TRAVERSALS~~^~~~~~~~~~~~~~~~~~~~~~
@@ -119,7 +119,24 @@ public class BST
      *****************************************************/
     TreeNode search( int target )
     {
-    	/*** YOUR IMPLEMENTATION HERE ***/
+    	TreeNode t = root;
+	TreeNode l = t.getLeft();
+	TreeNode r = t.getRight();
+
+	while ( l != null || r != null ) {
+	    if ( t.getValue() == target ) {
+		return current;
+	    }
+	    else if ( t.getValue() > target ) {
+		t = t.getLeft();
+		return t;
+	    }
+	    else if ( t.getValue() < target ) {
+		t = t.getRight();
+		return t;
+	    }
+	}
+	return null;
     }
 
 
@@ -130,7 +147,32 @@ public class BST
      *****************************************************/
     public int height()
     {
-    	/*** YOUR IMPLEMENTATION HERE ***/
+    	return height( root );//call overloaded height()
+    }
+
+    public int height( TreeNode t ) {
+	TreeNode l = t.getLeft();
+	TreeNode r = t.getRight();
+
+	if ( l == null ) {
+	    if ( r == null ) {
+		return 1;
+	    }
+	}
+	else if ( l == null ) {
+	    return height( r ) + 1;
+	}
+	else if ( r == null ) {
+	    return height( l ) + 1;
+	}
+	else {
+	    if ( height( l ) > height( r ) ) {
+		return height( l ) + 1;
+	    }
+	    else if ( height( r ) > height( l ) ) {
+		return height( r ) + 1;
+	    }
+	}
     }
 
 
@@ -140,35 +182,59 @@ public class BST
      *****************************************************/
     public int numLeaves()
     {
-    	/*** YOUR IMPLEMENTATION HERE ***/
+	return numLeaves( root );//call overloaded numLeaves()
     }
 
+    public int numLeaves( TreeNode t ) {
+	TreeNode l = t.getLeft();
+	TreeNode r = t.getRight();
 
-
+	if ( l == null ) {//tree only has root
+	    if ( r == null ) {
+		return 1;
+	    }
+	}
+	else if ( l == null ) {
+	    return numLeaves( r );
+	}
+	else if ( r == null ) {
+	    return numLeaves( l );
+	}
+	else {
+	    return numLeaves( l ) + numLeaves( r );
+	}
+    }
 
     //main method for testing
     public static void main( String[] args ) 
     {
-	/*~~~~~~~~~~~~move~me~down~~~~~~~~~~~~~~~~~~~~~~
 	  BST arbol = new BST();
-
 	  arbol.insert( 4 );
 	  arbol.insert( 2 );
 	  arbol.insert( 5 );
 	  arbol.insert( 6 );
 	  arbol.insert( 1 );
 	  arbol.insert( 3 );
-
 	  System.out.println( "\npre-order traversal:" );
 	  arbol.preOrderTrav();
-
 	  System.out.println( "\nin-order traversal:" );
 	  arbol.inOrderTrav();
 	
 	  System.out.println( "\npost-order traversal:" );
 	  arbol.postOrderTrav();	
-
 	  //insert your new test calls here...
+
+	  System.out.println( "Testing search..." );
+	  arbol.search( 1 );
+	  arbol.search( 3 );
+
+	  System.out.println( "Testing height..." );
+	  arbol.height();
+
+	  System.out.println( "Testing numLeaves..." );
+	  arbol.numLeaves();
+	  
+	/*~~~~~~~~~~~~move~me~down~~~~~~~~~~~~~~~~~~~~~~
 	  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
     }
 

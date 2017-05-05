@@ -119,21 +119,17 @@ public class BST
      *****************************************************/
     TreeNode search( int target )
     {
-    	TreeNode t = root;
-	TreeNode l = t.getLeft();
-	TreeNode r = t.getRight();
-
 	while ( l != null || r != null ) {
-	    if ( t.getValue() == target ) {
+	    if ( root.getValue() == target ) {
+		return root;
+	    }
+	    else if ( root.getValue() > target ) {
+		root = root.getLeft();
 		return t;
 	    }
-	    else if ( t.getValue() > target ) {
-		t = t.getLeft();
-		return t;
-	    }
-	    else if ( t.getValue() < target ) {
-		t = t.getRight();
-		return t;
+	    else if ( root.getValue() < target ) {
+		root = root.getRight();
+		return root;
 	    }
 	}
 	return null;
@@ -151,26 +147,21 @@ public class BST
     }
 
     public int height( TreeNode t ) {
-	TreeNode l = t.getLeft();
-	TreeNode r = t.getRight();
-
-	if ( l == null ) {
-	    if ( r == null ) {
-		return 1;
-	    }
+	if ( t.getLeft() == null && t.getRight() == null) {
+	    return 1;
 	}
-	else if ( l == null ) {
-	    return height( r ) + 1;
+	else if ( t.getLeft() == null ) {
+	    return height( t.getRight() ) + 1;
 	}
-	else if ( r == null ) {
-	    return height( l ) + 1;
+	else if ( t.getRight() == null ) {
+	    return height( t.getLeft() ) + 1;
 	}
 	else {
-	    if ( height( l ) > height( r ) ) {
-		return height( l ) + 1;
+	    if ( height( t.getLeft() ) > height( t.getRight() ) ) {
+		return height( t.getLeft() ) + 1;
 	    }
-	    else if ( height( r ) > height( l ) ) {
-		return height( r ) + 1;
+	    else if ( height( t.getRight() ) > height( t.getLeft() ) ) {
+		return height( t.getRight() ) + 1;
 	    }
 	}
 	return 0;
@@ -187,24 +178,17 @@ public class BST
     }
 
     public int numLeaves( TreeNode t ) {
-	TreeNode l = t.getLeft();
-	TreeNode r = t.getRight();
-
-	if ( l == null ) {//tree only has root
-	    if ( r == null ) {
-		return 1;
-	    }
+	if ( t.getLeft() == null && t.getRight() == null ) {//tree only has ro
+	    return 1;
 	}
-	else if ( l == null ) {
-	    return numLeaves( r );
+	else if ( t.getLeft() == null ) {
+	    return numLeaves( t.getRight() );
 	}
-	else if ( r == null ) {
-	    return numLeaves( l );
+	else if ( t.getRight() == null ) {
+	    return numLeaves( t.getLeft() );
 	}
-	else {
-	    return numLeaves( l ) + numLeaves( r );
-	}
-	return 0;
+	else 
+	    return numLeaves( t.getLeft() ) + numLeaves( t.getRight() );
     }
 
     //main method for testing

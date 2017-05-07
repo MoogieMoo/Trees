@@ -19,7 +19,7 @@ public class TreeNode
      *****************************************************/
     TreeNode( int initValue )
     {
-	value = 0;
+	value = initValue;
 	left = null;
 	right = null;
     }

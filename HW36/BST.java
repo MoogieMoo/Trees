@@ -327,15 +327,36 @@ public class BST
 	  System.out.println();
 	  //insert your new test calls here...
 
-	  System.out.println( "Testing search..." );
-	  System.out.println( arbol.search( 1 ) );
-	  System.out.println( arbol.search( 3 ) );
-
 	  System.out.println( "Testing height..." );
 	  System.out.println( arbol.height() );
 
 	  System.out.println( "Testing numLeaves..." );
 	  System.out.println( arbol.numLeaves() );
+
+	  System.out.println( "\nTesting remove...\n" );
+	  System.out.print( "Current tree: " );
+	  System.out.print( "(Pre) " );
+	  arbol.preOrderTrav();
+	  System.out.print( ", (In) " );
+	  arbol.inOrderTrav();
+	  System.out.print( ", (Post) " );
+	  arbol.postOrderTrav();
+	  System.out.print( "After removing 3: " );
+	  arbol.remove( 3 );
+	  System.out.print( "(Pre) " );
+	  arbol.preOrderTrav();
+	  System.out.print( ", (In) " );
+	  arbol.inOrderTrav();
+	  System.out.print( ", (Post) " );
+	  arbol.postOrderTrav();
+	  System.out.print( "After removing 4: " );
+	  arbol.remove( 4 );
+	  System.out.print( "(Pre) " );
+	  arbol.preOrderTrav();
+	  System.out.print( ", (In) " );
+	  arbol.inOrderTrav();
+	  System.out.print( ", (Post) " );
+	  arbol.postOrderTrav();	  
 	  
 	/*~~~~~~~~~~~~move~me~down~~~~~~~~~~~~~~~~~~~~~~
 	  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/

@@ -341,6 +341,7 @@ public class BST
 	  arbol.inOrderTrav();
 	  System.out.print( ", (Post) " );
 	  arbol.postOrderTrav();
+	  System.out.println();
 	  System.out.print( "After removing 3: " );
 	  arbol.remove( 3 );
 	  System.out.print( "(Pre) " );
@@ -349,6 +350,7 @@ public class BST
 	  arbol.inOrderTrav();
 	  System.out.print( ", (Post) " );
 	  arbol.postOrderTrav();
+	  System.out.println();
 	  System.out.print( "After removing 4: " );
 	  arbol.remove( 4 );
 	  System.out.print( "(Pre) " );

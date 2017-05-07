@@ -214,7 +214,7 @@ public class BST
 	//action: snip it
 	if ( isLeaf(leader) ) {
 	    //subcase: 1-node tree
-	    if ( follower = null ) {
+	    if ( follower == null ) {
 		leader = null;
 	    }
 
@@ -248,7 +248,7 @@ public class BST
 		follower.setRight( leader.getLeft() );
 	    }
 	}
-	else if ( leader.getLeft()==null ) { //rem node's child is on right
+	else if ( leader.getLeft() == null ) { //rem node's child is on right
 
 	    //subcase: removal node is root
 	    if ( follower == null ) {

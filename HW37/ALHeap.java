@@ -15,7 +15,7 @@ public class ALHeap
      *****************************************************/
     public ALHeap() 
     { 
-
+	_heap = {};
     }
 
 
@@ -28,7 +28,7 @@ public class ALHeap
      *****************************************************/
     public String toString() 
     { 
-
+	
     }//O(?)
 
 

@@ -28,8 +28,12 @@ public class ALHeap
      *****************************************************/
     public String toString() 
     { 
-	
-    }//O(?)
+	String retStr = "";
+	for ( int n : _heap ) {
+	    retStr += n + " ";
+	}
+	return retStr;	
+    }//O(n)
 
 
 
@@ -38,10 +42,9 @@ public class ALHeap
      * Returns true if no meaningful elements in heap, false otherwise
      *****************************************************/
     public boolean isEmpty() 
-    { 
-
+    { 	
 	return _heap.isEmpty(); 
-    } //O(?)
+    } //O(1)
 
 
 
@@ -52,7 +55,8 @@ public class ALHeap
      *****************************************************/
     public Integer peekMin() 
     { 
-    } //O(?)
+	return _heap.get(0);
+    } //O(1)
 
 
 
@@ -63,6 +67,7 @@ public class ALHeap
      *****************************************************/
     public void add( Integer addVal ) 
     { 
+	_heap.add( addVal );
 
     } //O(?)
 
@@ -88,8 +93,16 @@ public class ALHeap
      *****************************************************/
     private int minChildPos( int pos ) 
     {
-
-    }//O(?)
+	if ( _heap.size() <= 1 ) {
+	    return -1;
+	}
+	for ( int i = 0; i < _heap.size(); i ++ ) {
+	    if ( _heap.get(i) == pos ) {
+		return i;
+	    }
+	}
+	return -1;	    
+    }//O(n)
 
 
 

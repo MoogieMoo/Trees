@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class HeapSort
 {
     //instance vars
-    private ArrayList<Integer> _data;
+    private ArrayList<Integer> _data = new ArrayList<Integer>();
     private ALHeap _heap;
 
     /*****************************************************

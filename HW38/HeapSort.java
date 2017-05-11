@@ -55,7 +55,7 @@ public class HeapSort
 	for ( int i = 0; i < 6; i ++ ) {
 	    int rand = (int) ( Math.random() * 50 ) + 1;
 	    pile.add( rand );
-	    System.out.println( "Adding " + rand + "to data set... " );
+	    System.out.println( "Adding " + rand + " to data set... " );
 	}
 
 	System.out.println( pile.sort() );//returns sorted data set

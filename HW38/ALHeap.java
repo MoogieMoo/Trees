@@ -40,7 +40,7 @@ public class HeapSort
      *****************************************************/
     public ArrayList<Integer> sort() 
     { 
-	while ( _heap.size() > 0 ) {
+	while ( _heap.peekMin() != null ) {
 	    _data.add( _heap.removeMin() );
 	}
 	return _data;

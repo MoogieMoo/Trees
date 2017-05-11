@@ -40,7 +40,7 @@ public class HeapSort
      *****************************************************/
     public ArrayList<Integer> sort() 
     { 
-	while ( _heap.removeMin() != null ) {
+	while ( _heap.peekMin() != null ) {
 	    _data.add( _heap.removeMin() );
 	}
 	return _data;
@@ -53,7 +53,7 @@ public class HeapSort
 
 	//add in random values to sort
 	for ( int i = 0; i < 6; i ++ ) {
-	    int rand = (int) ( Math.random() * 10 ) + 1;
+	    int rand = (int) ( Math.random() * 50 ) + 1;
 	    pile.add( rand );
 	    System.out.println( "Adding " + rand + "to data set... " );
 	}
